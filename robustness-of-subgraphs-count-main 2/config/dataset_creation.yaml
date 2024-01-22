@@ -1,0 +1,32 @@
+# Datatset creation configuration file
+
+folder: /home/francesco/Desktop/Master thesis/robustness-of-subgraphs-count/data/training
+n_jobs: -1
+usage: "training" # if "training" splits are generated, if "robustness" no splits are generated
+dataset_size: 10000
+train_split: 0.6
+validation_split: 0.2
+test_split: 0.2
+seed: 1234
+
+# Possible choices are: 'er', 'rg', 'sbm', 'mix'
+# if mix is choosen than graph will be geenerated form all the generators havig all the parameters
+# Hence the commented generators won't be taken into consideration
+type: "er"
+
+# depending on type pf graph we require different parameters
+
+# only for "er"
+nodes: [10, 20, 30, 50] # number of nodes which will be combined with the parametes below
+probabilities: [0.3, 0.3, 0.2, 0.2] 
+
+# only for "rg"
+n: [10, 20, 30, 50]
+d: [3, 4, 5, 6] 
+
+# only for sbm
+sizes: [10, 10, 20]
+p: # only fro sbm, are the probabilities of generating an edge betwee two different gruops
+  - [0.6, 0.2, 0.3]
+  - [0.2, 0.8, 0.4]
+  - [0.3, 0.4, 0.5]
